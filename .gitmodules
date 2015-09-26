@@ -52,3 +52,6 @@
 [submodule "bundle/scss-snippets"]
 	path = bundle/scss-snippets
 	url = https://github.com/kwaledesign/scss-snippets.git
+[submodule "snipmate.vim"]
+	path = snipmate.vim
+	url = https://github.com/msanders/snipmate.vim
