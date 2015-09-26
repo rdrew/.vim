@@ -49,3 +49,6 @@
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround
+[submodule "bundle/scss-snippets"]
+	path = bundle/scss-snippets
+	url = https://github.com/kwaledesign/scss-snippets.git
