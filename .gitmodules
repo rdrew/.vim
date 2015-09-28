@@ -61,3 +61,6 @@
 [submodule "L9"]
 	path = L9
 	url = https://github.com/vim-scripts/L9
+[submodule "bundle/Fuzzyfinder"]
+	path = bundle/Fuzzyfinder
+	url = https://github.com/vim-scripts/Fuzzyfinder
