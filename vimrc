@@ -14,6 +14,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "keymapping
 map <C-n> :NERDTreeToggle<CR>
+noremap ; :
 
 "let g:nerdtree_tabs_open_on_console_startup=1
 
@@ -26,3 +27,11 @@ set omnifunc=csscomplete#CompleteCSS
 autocmd BufNewFile,BufRead *.scss             
 set ft=scss.css
 
+set wildmenu            " visual autocomplete for command menu "
+
+"relative number setup"
+
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
+let mapleader=","       " leader is comma "
