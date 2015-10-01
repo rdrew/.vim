@@ -64,3 +64,6 @@
 [submodule "bundle/Fuzzyfinder"]
 	path = bundle/Fuzzyfinder
 	url = https://github.com/vim-scripts/Fuzzyfinder
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab
