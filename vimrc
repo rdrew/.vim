@@ -35,3 +35,18 @@ autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
 let mapleader=","       " leader is comma "
+set hlsearch 		" search hiligh "
+
+"wild menu setup
+set wildmenu
+set wildmode=longest:full,full
+
+
+"  Ignore case when searching
+set ignorecase
+
+" When searching try to be smart about cases 
+set smartcase
+
+" Makes search act like search in modern browsers
+set incsearch
