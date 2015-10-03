@@ -8,6 +8,7 @@ filetype plugin indent on
 " reqired by nerdcommenter
 filetype plugin on
 
+colorscheme Monokai
 "nerdtree dirs always show
 
 "autocmd vimenter * NERDTree
@@ -52,6 +53,23 @@ set smartcase
 set incsearch
 
 let g:airline#extensions#tabline#enabled = 1 "ailine tabs enable
+if !exists('g:airline_symbols')
+	  let g:airline_symbols = {}
+  endif
+
+"unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
 " Treat long lines as break lines (useful when moving around in them)
 map j gj
