@@ -19,15 +19,13 @@ noremap ; :
 "let g:nerdtree_tabs_open_on_console_startup=1
 
 "only open closetag for relavent files
-autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+"autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+"autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 set omnifunc=csscomplete#CompleteCSS
 
 autocmd BufNewFile,BufRead *.scss             
 set ft=scss.css
-
-set wildmenu            " visual autocomplete for command menu "
 
 "relative number setup"
 
@@ -52,3 +50,5 @@ set smartcase
 set incsearch
 
 let g:airline#extensions#tabline#enabled = 1 "ailine tabs enable
+imap <tab>
+let g:UltiSnipsExpandTrigger="k"
