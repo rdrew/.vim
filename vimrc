@@ -50,3 +50,5 @@ set smartcase
 
 " Makes search act like search in modern browsers
 set incsearch
+
+let g:airline#extensions#tabline#enabled = 1 "ailine tabs enable
