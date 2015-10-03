@@ -24,8 +24,8 @@ noremap ; :
 
 set omnifunc=csscomplete#CompleteCSS
 
-autocmd BufNewFile,BufRead *.scss             
-set ft=scss.css
+"autocmd BufNewFile,BufRead *.scss
+"set ft=scss.css
 
 "relative number setup"
 
@@ -50,5 +50,3 @@ set smartcase
 set incsearch
 
 let g:airline#extensions#tabline#enabled = 1 "ailine tabs enable
-imap <tab>
-let g:UltiSnipsExpandTrigger="k"
