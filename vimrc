@@ -9,9 +9,11 @@ filetype plugin indent on
 filetype plugin on
 
 "nerdtree dirs always show
-autocmd vimenter * NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+"autocmd vimenter * NERDTree
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
 "keymapping
 map <C-n> :NERDTreeToggle<CR>
 noremap ; :
@@ -50,3 +52,11 @@ set smartcase
 set incsearch
 
 let g:airline#extensions#tabline#enabled = 1 "ailine tabs enable
+
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+
+" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
+map <space> /
+map <c-space> ?
