@@ -22,48 +22,21 @@
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized
-[submodule "bundle/--force"]
-	path = bundle/--force
-	url = https://github.com/Valloric/YouCompleteMe
-[submodule "bundle/YouCompleteMe"]
-	path = bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe
 [submodule "bundle/snipmate.vim"]
 	path = bundle/snipmate.vim
-	url = git://github.com/csexton/snipmate.vim.git
+	url = https://github.com/msanders/snipmate.vim
 [submodule "bundle/MatchTag"]
 	path = bundle/MatchTag
 	url = https://github.com/gregsexton/MatchTag
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter
-[submodule "bundle/ag"]
-	path = bundle/ag
-	url = https://github.com/ervandew/ag
-[submodule "bundle/FuzzyFinder"]
-	path = bundle/FuzzyFinder
-	url = https://github.com/vim-scripts/FuzzyFinder
-[submodule "bundle/L9"]
-	path = bundle/L9
-	url = https://github.com/vim-scripts/L9
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround
 [submodule "bundle/scss-snippets"]
 	path = bundle/scss-snippets
 	url = https://github.com/kwaledesign/scss-snippets.git
-[submodule "snipmate.vim"]
-	path = snipmate.vim
-	url = https://github.com/msanders/snipmate.vim
-[submodule "FuzzyFinder"]
-	path = FuzzyFinder
-	url = https://github.com/vim-scripts/FuzzyFinder
-[submodule "L9"]
-	path = L9
-	url = https://github.com/vim-scripts/L9
-[submodule "bundle/Fuzzyfinder"]
-	path = bundle/Fuzzyfinder
-	url = https://github.com/vim-scripts/Fuzzyfinder
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab
