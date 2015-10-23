@@ -78,3 +78,6 @@ map k gk
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 map <space> /
 map <c-space> ?
+" ctrlp stuff
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
