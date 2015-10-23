@@ -1,6 +1,6 @@
 " switch on line numbering
 set number
-
+call pathogen#helptags()
 execute pathogen#infect()
 syntax on
 filetype plugin indent on

@@ -61,3 +61,6 @@
 [submodule "bundle/colorschemes"]
 	path = bundle/colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
+[submodule "bundle/Startify"]
+	path = bundle/Startify
+	url = https://github.com/mhinz/vim-startify
