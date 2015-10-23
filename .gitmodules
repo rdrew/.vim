@@ -49,9 +49,6 @@
 [submodule "bundle/gist-vim"]
 	path = bundle/gist-vim
 	url = https://github.com/mattn/gist-vim
-[submodule "bundle/DrawIt"]
-	path = bundle/DrawIt
-	url = https://github.com/vim-scripts/DrawIt.git
 [submodule "bundle/ultisnips"]
 	path = bundle/ultisnips
 	url = git://github.com/SirVer/ultisnips.git
