@@ -92,6 +92,9 @@ set tabstop=4 " The default is 8 which is MASSIVE!!
 
 set showmatch " highlight matching [{()}]
 set foldenable " enable folding
+set foldlevel=0
+set modelines=1
+set foldmethod=marker
 set foldlevelstart=10 " open most folds by default
 set foldnestmax=10 " 10 nested folders max
 set shiftwidth=4
@@ -137,13 +140,12 @@ endfor
 for i in range(1, 99)
     execute printf('nnoremap <Leader>d%d :Bdelete %d<CR>', i, i)
 endfor
-" }}}
 
 " Function to trim trailing whitespace on save {{{
 function! TrimWhiteSpace()
 	%s/\s\+$//e
 endfunction
-
+" }}}
 
 set infercase
 set completeopt=longest,menuone
@@ -161,3 +163,10 @@ augroup omni_complete
   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup END
+" vim:foldmethod=marker:foldlevel=0
+
+"asshole mode
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
