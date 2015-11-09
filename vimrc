@@ -189,3 +189,26 @@ noremap <Right> <NOP>
 
 map <Enter> o<ESC>
 map <CR-Enter> O<ESC>
+
+ "When jump to next match also center screen
+ noremap n nzz
+ noremap N Nzz
+
+ " Same when moving up and down
+ noremap <C-d> <C-d>zz
+ noremap <C-u> <C-u>zz
+
+ " Remap H and L (top, bottom of screen to left and right end of line)
+ nnoremap H ^
+ nnoremap L $
+ vnoremap H ^
+ vnoremap L g_
+
+ " Yank and paste from clipboard
+  nnoremap ,y "+y
+  vnoremap ,y "+y
+  nnoremap ,yy "+yy
+  nnoremap ,p "+p
+" Automatically reload change files on disk
+set autoread                                
+set wrapscan                                " Search again from top when reached the bottom
