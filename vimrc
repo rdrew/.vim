@@ -1,4 +1,5 @@
 " switch on line numbering
+"
 set number
 call pathogen#helptags()
 execute pathogen#infect()
@@ -48,8 +49,8 @@ set incsearch
 
 let g:airline#extensions#tabline#enabled = 1 "ailine tabs enable
 if !exists('g:airline_symbols')
-	  let g:airline_symbols = {}
-  endif
+	let g:airline_symbols = {}
+endif
 
 "unicode symbols
 let g:airline_left_sep = '»'
@@ -76,7 +77,7 @@ set ttimeoutlen=1 " (Hopefully) removes the delay when hitting esc in insert mod
 "set list
 ""set listchars=tab:┊\ 
 set tabstop=4 " The default is 8 which is MASSIVE!!
- "   "
+"   "
 
 set showmatch " highlight matching [{()}]
 set foldenable " enable folding
@@ -132,7 +133,7 @@ noremap <Leader>v :vsplit<CR>
 " Make sure powerline fonts are used
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
+	let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
 let g:airline_theme="molokai"
@@ -148,13 +149,13 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 " The idea is to press <leader> and then the number from normal mode to switch
 " e.g. `,2` would switch to the second buffer (listed at the top of the
 " airline strip
- 
+
 ":nnoremap <silent> <Leader> :<C-u>try \| execute "b" . v:count \| catch \| endtry<CR>
 for i in range(1, 99)
-    execute printf('nnoremap <Leader>%d :%db<CR>', i, i)
+	execute printf('nnoremap <Leader>%d :%db<CR>', i, i)
 endfor
 for i in range(1, 99)
-    execute printf('nnoremap <Leader>d%d :Bdelete %d<CR>', i, i)
+	execute printf('nnoremap <Leader>d%d :Bdelete %d<CR>', i, i)
 endfor
 
 " Function to trim trailing whitespace on save {{{
@@ -170,14 +171,14 @@ set completefunc=syntaxcomplete#Complete
 set complete=.,w,b,u,U,t,i,d
 
 augroup omni_complete
-  " clear commands before resetting
-  autocmd!
-  " Enable omnicomplete for supported filetypes
-  autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+	" clear commands before resetting
+	autocmd!
+	" Enable omnicomplete for supported filetypes
+	autocmd FileType css,scss setlocal omnifunc=csscomplete#CompleteCSS
+	autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+	autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+	autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+	autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 augroup END
 " vim:foldmethod=marker:foldlevel=0
 
@@ -190,25 +191,135 @@ noremap <Right> <NOP>
 map <Enter> o<ESC>
 map <CR-Enter> O<ESC>
 
- "When jump to next match also center screen
- noremap n nzz
- noremap N Nzz
+"When jump to next match also center screen
+noremap n nzz
+noremap N Nzz
 
- " Same when moving up and down
- noremap <C-d> <C-d>zz
- noremap <C-u> <C-u>zz
+" Same when moving up and down
+noremap <C-d> <C-d>zz
+noremap <C-u> <C-u>zz
 
- " Remap H and L (top, bottom of screen to left and right end of line)
- nnoremap H ^
- nnoremap L $
- vnoremap H ^
- vnoremap L g_
+" Remap H and L (top, bottom of screen to left and right end of line)
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L g_
 
- " Yank and paste from clipboard
-  nnoremap ,y "+y
-  vnoremap ,y "+y
-  nnoremap ,yy "+yy
-  nnoremap ,p "+p
+" Yank and paste from clipboard
+nnoremap ,y "+y
+vnoremap ,y "+y
+nnoremap ,yy "+yy
+nnoremap ,p "+p
 " Automatically reload change files on disk
 set autoread                                
 set wrapscan                                " Search again from top when reached the bottom
+
+" NerdTree
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
+
+" " Multiple cursors
+let g:multi_cursor_start_key='<F5>'
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-k>'
+let g:multi_cursor_quit_key='<Esc>'
+" Syntactic stuff
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_css_checkers = ["csslint"]
+let g:syntastic_scss_checkers = ['sass']
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_check_on_open = 1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '⚠'
+"autoformat
+noremap <F3> :Autoformat<CR>
+"startify
+
+autocmd User Startified setlocal cursorline
+
+let g:startify_enable_special         = 0
+let g:startify_files_number           = 8
+let g:startify_relative_path          = 1
+let g:startify_change_to_dir          = 1
+let g:startify_session_autoload       = 1
+let g:startify_session_persistence    = 1
+let g:startify_session_delete_buffers = 1
+
+let g:startify_list_order = [
+			\ ['   LRU:'],
+			\ 'files',
+			\ ['   LRU within this dir:'],
+			\ 'dir',
+			\ ['   Sessions:'],
+			\ 'sessions',
+			\ ['   Bookmarks:'],
+			\ 'bookmarks',
+			\ ]
+
+"let g:startify_skiplist = [
+"\ 'COMMIT_EDITMSG',
+"\ 'bundle/.*/doc',
+"\ '/data/repo/neovim/runtime/doc',
+"\ '/Users/mhi/local/vim/share/vim/vim74/doc',
+"\ ]
+
+let g:startify_bookmarks = [ '~/.vim/vimrc' ]
+
+let g:startify_custom_header = [
+			\ ' .______        ______   .______    __     _______.                                ',
+			\ ' |   _  \      /  __  \  |   _  \  (_ )   /       |                                ',
+			\ ' |  |_)  |    |  |  |  | |  |_)  |  |/   |   (----`                                ',
+			\ ' |      /     |  |  |  | |   _  <         \   \                                    ',
+			\ ' |  |\  \----.|  `--''  | |  |_)  |    .----)   |                                   ',
+			\ ' | _| `._____| \______/  |______/     |_______/                                    ',
+			\ '                                                                                   ',
+			\ '      ___   ____    __    ____  _______     _______.  ______   .___  ___.  _______ ',
+			\ '     /   \  \   \  /  \  /   / |   ____|   /       | /  __  \  |   \/   | |   ____|',
+			\ '    /  ^  \  \   \/    \/   /  |  |__     |   (----`|  |  |  | |  \  /  | |  |__   ',
+			\ '   /  /_\  \  \            /   |   __|     \   \    |  |  |  | |  |\/|  | |   __|  ',
+			\ '  /  _____  \  \    /\    /    |  |____.----)   |   |  `--''  | |  |  |  | |  |____ ',
+			\ ' /__/     \__\  \__/  \__/     |_______|_______/     \______/  |__|  |__| |_______|',
+			\ '                                                                                   ',
+			\ ' ____    ____  __  .___  ___.                                                      ',
+			\ ' \   \  /   / |  | |   \/   |                                                      ',
+			\ '  \   \/   /  |  | |  \  /  |                                                      ',
+			\ '   \      /   |  | |  |\/|  |                                                      ',
+			\ '    \    /    |  | |  |  |  |                                                      ',
+			\ '     \__/     |__| |__|  |__|                                                      ',
+			\ ]
+
+let g:startify_custom_footer = [
+			\ '	    ____            .    _  .   ',
+			\ '	   /# /_\_          |\_|/__/|	',
+			\ '	  |  |/o\o\        / / \/ \  \	',
+			\ '	  |  \\_/_/       /__|O||O|__ \	',
+			\ '	 / |_   |        |/_ \_/\_/ _\ |',
+			\ '	|  ||\_ ~|       | | (____) | ||',
+			\ '	|  ||| \/        \/\___/\__/  //',
+			\ '	|  |||_          (_/         ||	',
+			\ '	 \//  |           |          ||	',
+			\ '	  ||  |           |          ||\',
+			\ '	  ||_  \           \        //_/',
+			\ '	  \_|  o|           \______//	',
+			\ '	  /\___/          __ || __|| 	',
+			\ '	 /  ||||__       (____(____) 	',
+			\ '	    (___)_)  					',
+			\ ]
+
+hi StartifyBracket ctermfg=240
+hi StartifyFile    ctermfg=147
+hi StartifyFooter  ctermfg=240
+hi StartifyHeader  ctermfg=114
+hi StartifyNumber  ctermfg=215
+hi StartifyPath    ctermfg=245
+hi StartifySlash   ctermfg=240
+hi StartifySpecial ctermfg=240
