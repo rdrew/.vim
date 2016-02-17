@@ -85,3 +85,6 @@
 [submodule "syntax/css.vim"]
 	path = syntax/css.vim
 	url = https://github.com/JulesWang/css.vim.git
+[submodule "bundle/vim-startify"]
+	path = bundle/vim-startify
+	url = https://github.com/mhinz/vim-startify
