@@ -94,3 +94,6 @@
 [submodule "bundle/neosnippet.vim"]
 	path = bundle/neosnippet.vim
 	url = https://github.com/Shougo/neosnippet.vim.git
+[submodule "bundle/goyo.vim"]
+	path = bundle/goyo.vim
+	url = https://github.com/junegunn/goyo.vim
