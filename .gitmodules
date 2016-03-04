@@ -94,3 +94,15 @@
 [submodule "bundle/neosnippet.vim"]
 	path = bundle/neosnippet.vim
 	url = https://github.com/Shougo/neosnippet.vim.git
+[submodule "bundle/vim-textobj-user"]
+	path = bundle/vim-textobj-user
+	url = https://github.com/kana/vim-textobj-user.git
+[submodule "bundle/vim-textobj-css"]
+	path = bundle/vim-textobj-css
+	url = https://github.com/jasonlong/vim-textobj-css.git
+[submodule "bundle/goyo.vim"]
+	path = bundle/goyo.vim
+	url = https://github.com/junegunn/goyo.vim.git
+[submodule "bundle/limelight.vim"]
+	path = bundle/limelight.vim
+	url = https://github.com/junegunn/limelight.vim.git
