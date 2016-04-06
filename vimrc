@@ -426,3 +426,8 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+
+" Move visual block
+ vnoremap J :m '>+1<CR>gv=gv
+ vnoremap K :m '<-2<CR>gv=gv
