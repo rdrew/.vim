@@ -13,9 +13,9 @@ filetype plugin on
 " (requires correct presets for iTerm2/Terminal too:  http://blog.pangyanhan.com/posts/2013-12-13-vim-install-solarized-on-mac-os-x.html)
 syntax enable
 set background=dark
-" colorscheme solarized
+ colorscheme solarized
 " colorscheme vwilight
-colorscheme Monokai
+"colorscheme Monokai
 
 "keymapping
 map <C-n> :NERDTreeToggle<CR>
@@ -228,12 +228,15 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_shell = "/bin/zsh"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_css_checkers = ["csslint"]
-let g:syntastic_scss_checkers = ['sass']
+let g:syntastic_scss_checkers = ["sass"]
+"let g:syntastic_sass_checkers=["sass_lint"]
+"let g:syntastic_scss_checkers=["sass_lint"]
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_check_on_open = 1
 let g:syntastic_error_symbol='✗'
@@ -417,11 +420,11 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " \ neosnippet#expandable_or_jumpable() ?
 " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
 if has('conceal')
-  set conceallevel=2 concealcursor=niv
+	set conceallevel=2 concealcursor=niv
 endif
 
 
@@ -430,3 +433,47 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+" Compatible with ranger 1.4.2 through 1.7.*
+"
+" Add ranger as a file chooser in vim
+"
+" If you add this code to the .vimrc, ranger can be started using the command
+" ":RangerChooser" or the keybinding "<leader>r".  Once you select one or more
+" files, press enter and ranger will quit again and vim will open the selected
+" files.
+
+function! RangeChooser()
+	let temp = tempname()
+	" The option "--choosefiles" was added in ranger 1.5.1. Use the next line
+	" with ranger 1.4.2 through 1.5.0 instead.
+	"exec 'silent !ranger --choosefile=' . shellescape(temp)
+	if has("gui_running")
+		exec 'silent !xterm -e ranger --choosefiles=' . shellescape(temp)
+	else
+		exec 'silent !ranger --choosefiles=' . shellescape(temp)
+	endif
+	if !filereadable(temp)
+		redraw!
+		" Nothing to read.
+		return
+	endif
+	let names = readfile(temp)
+	if empty(names)
+		redraw!
+		" Nothing to open.
+		return
+	endif
+	" Edit the first item.
+	exec 'edit ' . fnameescape(names[0])
+	" Add any remaning items to the arg list/buffer list.
+	for name in names[1:]
+		exec 'argadd ' . fnameescape(name)
+	endfor
+	redraw!
+endfunction
+command! -bar RangerChooser call RangeChooser()
+nnoremap <leader>r :<C-U>RangerChooser<CR>
+
+
+
