@@ -13,9 +13,9 @@ filetype plugin on
 " (requires correct presets for iTerm2/Terminal too:  http://blog.pangyanhan.com/posts/2013-12-13-vim-install-solarized-on-mac-os-x.html)
 syntax enable
 set background=dark
-" colorscheme solarized
+ colorscheme solarized
 " colorscheme vwilight
-colorscheme Monokai
+"colorscheme Monokai
 
 "keymapping
 map <C-n> :NERDTreeToggle<CR>
