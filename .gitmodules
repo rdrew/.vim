@@ -115,3 +115,6 @@
 [submodule "bundle/CSS-one-line--multi-line-folding"]
 	path = bundle/CSS-one-line--multi-line-folding
 	url = https://github.com/vim-scripts/CSS-one-line--multi-line-folding.git
+[submodule "bundle/neosnippet-snippets"]
+	path = bundle/neosnippet-snippets
+	url = https://github.com/Shougo/neosnippet-snippets.git
