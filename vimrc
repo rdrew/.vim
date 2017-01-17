@@ -12,8 +12,8 @@ filetype plugin on
 " Syntax highlighting with Solarized {{{
 " (requires correct presets for iTerm2/Terminal too:  http://blog.pangyanhan.com/posts/2013-12-13-vim-install-solarized-on-mac-os-x.html)
 syntax enable
-set background=dark
- colorscheme solarized
+"set background=dark
+" colorscheme solarized
 " colorscheme vwilight
 "colorscheme Monokai
 
@@ -481,3 +481,9 @@ nnoremap <leader>r :<C-U>RangerChooser<CR>
 " Move visual block
  vnoremap J :m '>+1<CR>gv=gv
  vnoremap K :m '<-2<CR>gv=gv
+
+ "lilypoond stuff
+filetype off
+set runtimepath+=/usr/share/lilypond/2.18.2/vim/
+filetype on
+syntax on
