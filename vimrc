@@ -57,6 +57,10 @@ let mapleader=","       " leader is comma "
 syntax enable
 set background=dark
 colorscheme solarized
+"set background=dark
+" colorscheme solarized
+" colorscheme vwilight
+"colorscheme Monokai
 
 "keymapping
 map <C-n> :NERDTreeToggle<CR>
@@ -494,3 +498,9 @@ nnoremap <leader>r :<C-U>RangerChooser<CR>
 " Move visual block
  vnoremap J :m '>+1<CR>gv=gv
  vnoremap K :m '<-2<CR>gv=gv
+
+ "lilypoond stuff
+filetype off
+set runtimepath+=/usr/share/lilypond/2.18.2/vim/
+filetype on
+syntax on
