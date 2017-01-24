@@ -1,6 +1,3 @@
-" switch on line numbering
-"
-set number
 call pathogen#helptags()
 execute pathogen#infect()
 syntax on
@@ -9,13 +6,57 @@ filetype plugin indent on
 " reqired by nerdcommenter
 filetype plugin on
 
+let g:NERDCustomDelimiters = { 'php': { 'left': '//', 'leftAlt': '<!--', 'rightAlt': '-->' } }
+
+" General settings
+set incsearch             " Find as you type
+set scrolloff=2           " Number of lines to keep above/below cursor
+set number                " Show line numbers
+set wildmode=longest,list " Complete longest string, then list alternatives
+set pastetoggle=<F2>      " Toggle paste mode
+set fileformats=unix      " Use Unix line endings
+set history=300           " Number of commands to remember
+set showmode              " Show whether in Visual, Replace, or Insert Mode
+set showmatch             " Show matching brackets/parentheses
+set backspace=2           " Use standard backspace behavior
+set hlsearch              " Highlight matches in search
+set ruler                 " Show line and column number
+set formatoptions=1       " Don't wrap text after a one-letter word
+set linebreak             " Break lines when appropriate
+
+
+set autoindent            " always set autoindenting on
+set noesckeys             " (Hopefully) removes the delay when hitting esc in insert mode
+set ttimeout              " (Hopefully) removes the delay when hitting esc in insert mode
+set ttimeoutlen=1         " (Hopefully) removes the delay when hitting esc in insert mode
+
+set showmatch             " highlight matching [{()}]
+set foldenable            " enable folding
+set foldlevel=0
+set modelines=1
+set foldmethod=marker
+set foldlevelstart=10     " open most folds by default
+set foldnestmax=10        " 10 nested folders max
+set wrap linebreak nolist
+                          " set spell
+set virtualedit=onemore
+set smartcase             " don't ignore Captials when present
+set ignorecase            " don't need correct case when searching
+set splitbelow            " puts new splits to the bottom
+set splitright            " ensures new splits are to the right of current
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+let mapleader=","       " leader is comma "
+
+
 " Syntax highlighting with Solarized {{{
 " (requires correct presets for iTerm2/Terminal too:  http://blog.pangyanhan.com/posts/2013-12-13-vim-install-solarized-on-mac-os-x.html)
 syntax enable
 set background=dark
- colorscheme solarized
-" colorscheme vwilight
-"colorscheme Monokai
+colorscheme solarized
 
 "keymapping
 map <C-n> :NERDTreeToggle<CR>
@@ -30,8 +71,6 @@ set omnifunc=csscomplete#CompleteCSS
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
-let mapleader=","       " leader is comma "
-set hlsearch 		" search hiligh "
 
 "wild menu setup
 set wildmenu
@@ -44,8 +83,6 @@ set ignorecase
 " When searching try to be smart about cases 
 set smartcase
 
-" Makes search act like search in modern browsers
-set incsearch
 
 let g:airline#extensions#tabline#enabled = 1 "ailine tabs enable
 if !exists('g:airline_symbols')
@@ -70,30 +107,6 @@ let g:airline_symbols.whitespace = 'Ξ'
 map j gj
 map k gk
 
-set autoindent " always set autoindenting on
-set noesckeys " (Hopefully) removes the delay when hitting esc in insert mode
-set ttimeout " (Hopefully) removes the delay when hitting esc in insert mode
-set ttimeoutlen=1 " (Hopefully) removes the delay when hitting esc in insert mode
-"set list
-""set listchars=tab:┊\ 
-set tabstop=4 " The default is 8 which is MASSIVE!!
-"   "
-
-set showmatch " highlight matching [{()}]
-set foldenable " enable folding
-set foldlevel=0
-set modelines=1
-set foldmethod=marker
-set foldlevelstart=10 " open most folds by default
-set foldnestmax=10 " 10 nested folders max
-set shiftwidth=4
-set wrap linebreak nolist
-"set spell
-set virtualedit=onemore
-set smartcase "don't ignore Captials when present
-set ignorecase "don't need correct case when searching
-set splitbelow " puts new splits to the bottom
-set splitright " ensures new splits are to the right of current
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 map <space> /
