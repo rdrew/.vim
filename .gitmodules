@@ -118,3 +118,9 @@
 [submodule "bundle/neosnippet-snippets"]
 	path = bundle/neosnippet-snippets
 	url = https://github.com/Shougo/neosnippet-snippets.git
+[submodule "bundle/vim-lilypond-integrator"]
+	path = bundle/vim-lilypond-integrator
+	url = https://github.com/gisraptor/vim-lilypond-integrator.git
+[submodule "bundle/vim-csscomb"]
+	path = bundle/vim-csscomb
+	url = https://github.com/csscomb/vim-csscomb.git
