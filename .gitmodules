@@ -1,3 +1,6 @@
+[submodule "bundle/vim-twig"]
+	path = bundle/vim-twig
+	url = https://github.com/lumiliet/vim-twig.git
 [submodule "bundle/vim-sensible"]
 	path = bundle/vim-sensible
 	url = git://github.com/tpope/vim-sensible.git
@@ -87,7 +90,7 @@
 	url = https://github.com/JulesWang/css.vim.git
 [submodule "bundle/vim-startify"]
 	path = bundle/vim-startify
-	url = https://github.com/mhinz/vim-startify
+	url = https://github.com/mhinz/vim-startify.git
 [submodule "bundle/neocomplete.vim"]
 	path = bundle/neocomplete.vim
 	url = https://github.com/Shougo/neocomplete.vim
@@ -106,3 +109,18 @@
 [submodule "bundle/limelight.vim"]
 	path = bundle/limelight.vim
 	url = https://github.com/junegunn/limelight.vim.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/CSS-one-line--multi-line-folding"]
+	path = bundle/CSS-one-line--multi-line-folding
+	url = https://github.com/vim-scripts/CSS-one-line--multi-line-folding.git
+[submodule "bundle/neosnippet-snippets"]
+	path = bundle/neosnippet-snippets
+	url = https://github.com/Shougo/neosnippet-snippets.git
+[submodule "bundle/vim-lilypond-integrator"]
+	path = bundle/vim-lilypond-integrator
+	url = https://github.com/gisraptor/vim-lilypond-integrator.git
+[submodule "bundle/vim-csscomb"]
+	path = bundle/vim-csscomb
+	url = https://github.com/csscomb/vim-csscomb.git

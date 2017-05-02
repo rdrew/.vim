@@ -1,6 +1,3 @@
-" switch on line numbering
-"
-set number
 call pathogen#helptags()
 execute pathogen#infect()
 syntax on
@@ -9,13 +6,57 @@ filetype plugin indent on
 " reqired by nerdcommenter
 filetype plugin on
 
+let g:NERDCustomDelimiters = { 'php': { 'left': '//', 'leftAlt': '<!--', 'rightAlt': '-->' } }
+
+" General settings
+set incsearch             " Find as you type
+set scrolloff=2           " Number of lines to keep above/below cursor
+set number                " Show line numbers
+set wildmode=longest,list " Complete longest string, then list alternatives
+set pastetoggle=<F2>      " Toggle paste mode
+set fileformats=unix      " Use Unix line endings
+set history=300           " Number of commands to remember
+set showmode              " Show whether in Visual, Replace, or Insert Mode
+set showmatch             " Show matching brackets/parentheses
+set backspace=2           " Use standard backspace behavior
+set hlsearch              " Highlight matches in search
+set ruler                 " Show line and column number
+set formatoptions=1       " Don't wrap text after a one-letter word
+set linebreak             " Break lines when appropriate
+
+
+set autoindent            " always set autoindenting on
+set noesckeys             " (Hopefully) removes the delay when hitting esc in insert mode
+set ttimeout              " (Hopefully) removes the delay when hitting esc in insert mode
+set ttimeoutlen=1         " (Hopefully) removes the delay when hitting esc in insert mode
+
+set showmatch             " highlight matching [{()}]
+set foldenable            " enable folding
+set foldlevel=0
+set modelines=1
+set foldmethod=marker
+set foldlevelstart=10     " open most folds by default
+set foldnestmax=10        " 10 nested folders max
+set wrap linebreak nolist
+                          " set spell
+set virtualedit=onemore
+set smartcase             " don't ignore Captials when present
+set ignorecase            " don't need correct case when searching
+set splitbelow            " puts new splits to the bottom
+set splitright            " ensures new splits are to the right of current
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set autoindent
+set smartindent
+let mapleader=","       " leader is comma "
+
+
 " Syntax highlighting with Solarized {{{
 " (requires correct presets for iTerm2/Terminal too:  http://blog.pangyanhan.com/posts/2013-12-13-vim-install-solarized-on-mac-os-x.html)
 syntax enable
 set background=dark
- colorscheme solarized
-" colorscheme vwilight
-"colorscheme Monokai
+colorscheme solarized
 
 "keymapping
 map <C-n> :NERDTreeToggle<CR>
@@ -30,8 +71,6 @@ set omnifunc=csscomplete#CompleteCSS
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
-let mapleader=","       " leader is comma "
-set hlsearch 		" search hiligh "
 
 "wild menu setup
 set wildmenu
@@ -44,8 +83,6 @@ set ignorecase
 " When searching try to be smart about cases 
 set smartcase
 
-" Makes search act like search in modern browsers
-set incsearch
 
 let g:airline#extensions#tabline#enabled = 1 "ailine tabs enable
 if !exists('g:airline_symbols')
@@ -70,30 +107,6 @@ let g:airline_symbols.whitespace = 'Ξ'
 map j gj
 map k gk
 
-set autoindent " always set autoindenting on
-set noesckeys " (Hopefully) removes the delay when hitting esc in insert mode
-set ttimeout " (Hopefully) removes the delay when hitting esc in insert mode
-set ttimeoutlen=1 " (Hopefully) removes the delay when hitting esc in insert mode
-"set list
-""set listchars=tab:┊\ 
-set tabstop=4 " The default is 8 which is MASSIVE!!
-"   "
-
-set showmatch " highlight matching [{()}]
-set foldenable " enable folding
-set foldlevel=0
-set modelines=1
-set foldmethod=marker
-set foldlevelstart=10 " open most folds by default
-set foldnestmax=10 " 10 nested folders max
-set shiftwidth=4
-set wrap linebreak nolist
-"set spell
-set virtualedit=onemore
-set smartcase "don't ignore Captials when present
-set ignorecase "don't need correct case when searching
-set splitbelow " puts new splits to the bottom
-set splitright " ensures new splits are to the right of current
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 map <space> /
@@ -228,12 +241,15 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+let g:syntastic_shell = "/bin/zsh"
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_css_checkers = ["csslint"]
-let g:syntastic_scss_checkers = ['sass']
+let g:syntastic_scss_checkers = ["sass"]
+"let g:syntastic_sass_checkers=["sass_lint"]
+"let g:syntastic_scss_checkers=["sass_lint"]
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_check_on_open = 1
 let g:syntastic_error_symbol='✗'
@@ -417,11 +433,11 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " \ neosnippet#expandable_or_jumpable() ?
 " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
 if has('conceal')
-  set conceallevel=2 concealcursor=niv
+	set conceallevel=2 concealcursor=niv
 endif
 
 
@@ -430,3 +446,64 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+
+" Compatible with ranger 1.4.2 through 1.7.*
+"
+" Add ranger as a file chooser in vim
+"
+" If you add this code to the .vimrc, ranger can be started using the command
+" ":RangerChooser" or the keybinding "<leader>r".  Once you select one or more
+" files, press enter and ranger will quit again and vim will open the selected
+" files.
+
+function! RangeChooser()
+	let temp = tempname()
+	" The option "--choosefiles" was added in ranger 1.5.1. Use the next line
+	" with ranger 1.4.2 through 1.5.0 instead.
+	"exec 'silent !ranger --choosefile=' . shellescape(temp)
+	if has("gui_running")
+		exec 'silent !xterm -e ranger --choosefiles=' . shellescape(temp)
+	else
+		exec 'silent !ranger --choosefiles=' . shellescape(temp)
+	endif
+	if !filereadable(temp)
+		redraw!
+		" Nothing to read.
+		return
+	endif
+	let names = readfile(temp)
+	if empty(names)
+		redraw!
+		" Nothing to open.
+		return
+	endif
+	" Edit the first item.
+	exec 'edit ' . fnameescape(names[0])
+	" Add any remaning items to the arg list/buffer list.
+	for name in names[1:]
+		exec 'argadd ' . fnameescape(name)
+	endfor
+	redraw!
+endfunction
+command! -bar RangerChooser call RangeChooser()
+nnoremap <leader>r :<C-U>RangerChooser<CR>
+
+
+
+
+" Move visual block
+ vnoremap J :m '>+1<CR>gv=gv
+ vnoremap K :m '<-2<CR>gv=gv
+
+ "lilypoond stuff
+filetype off
+set runtimepath+=/usr/share/lilypond/2.18.2/vim/
+filetype on
+syntax on
+
+"csscomb stuff
+"
+" Map bc to run CSScomb. bc stands for beautify css
+autocmd FileType css noremap <buffer> <leader>bc :CSScomb<CR>
+" Automatically comb your CSS on save
+" autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :CSScomb
