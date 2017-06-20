@@ -257,7 +257,7 @@ let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 "autoformat
-noremap <F3> :Autoformat<CR>
+noremap <F1> :Autoformat<CR>
 "startify
 
 autocmd User Startified setlocal cursorline
